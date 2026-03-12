@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MySQL  # 테스트는 무조건 가벼운 H2로!
+    driver-class-name: org.h2.Driver
+    username: sa
+  jpa:
+    hibernate:
+      ddl-auto: create
+  data:
+    redis:
+      host: localhost
+      port: 6379
