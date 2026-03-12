@@ -1,73 +1,27 @@
-# React + TypeScript + Vite
+# CommerceCore Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+주문 및 재고 관리 시스템의 사용자 인터페이스입니다. React와 TypeScript를 사용하여 안정적인 데이터 흐름을 구현하고, 주문 과정에서의 사용자 경험을 최적화하는 데 집중했습니다.
 
-Currently, two official plugins are available:
+## 🛠 주요 기술 스택
+- **Language**: TypeScript 
+- **Framework**: React 18, Vite 
+- **Styling**: Tailwind CSS 
+- **Communication**: Axios (REST API 연동)
+- **State Management**: React Query / Context API (주문 데이터 및 재고 상태 관리)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 주요 기능 및 구현 포인트
+1. **주문 과정 시각화**: 
+   - 실시간 재고 상태를 반영하여 주문 가능한 상품인지 즉각적인 피드백 제공
+2. **비동기 요청 처리**: 
+   - Axios를 활용한 백엔드 API 연동 및 결제 요청 시 네트워크 상태에 따른 로딩/에러 처리
+3. **사용자 경험(UX) 최적화**: 
+   - Tailwind CSS를 활용한 반응형 웹 구현
+   - 중복 클릭 방지 (주문 버튼 비활성화 등 프론트엔드 단에서의 1차 방어)
 
-## React Compiler
+## 실행 방법
+```bash
+# 의존성 설치
+npm install
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+# 개발 서버 실행
+npm run dev
